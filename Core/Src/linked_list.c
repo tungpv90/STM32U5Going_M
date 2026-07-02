@@ -59,23 +59,18 @@ HAL_StatusTypeDef MX_SAI_Audio_Queue_Config(void)
   DMA_NodeConfTypeDef pNodeConfig;
 
   /* Set node configuration ################################################*/
-  pNodeConfig.NodeType = DMA_GPDMA_2D_NODE;
+  pNodeConfig.NodeType = DMA_GPDMA_LINEAR_NODE;
   pNodeConfig.Init.Request = GPDMA1_REQUEST_SAI1_A;
   pNodeConfig.Init.BlkHWRequest = DMA_BREQ_SINGLE_BURST;
   pNodeConfig.Init.Direction = DMA_MEMORY_TO_PERIPH;
-  pNodeConfig.Init.SrcInc = DMA_SINC_FIXED;
+  pNodeConfig.Init.SrcInc = DMA_SINC_INCREMENTED;
   pNodeConfig.Init.DestInc = DMA_DINC_FIXED;
-  pNodeConfig.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_BYTE;
-  pNodeConfig.Init.DestDataWidth = DMA_DEST_DATAWIDTH_BYTE;
-  pNodeConfig.Init.SrcBurstLength = 1;
+  pNodeConfig.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_HALFWORD;
+  pNodeConfig.Init.DestDataWidth = DMA_DEST_DATAWIDTH_HALFWORD;
+  pNodeConfig.Init.SrcBurstLength = 4;
   pNodeConfig.Init.DestBurstLength = 1;
   pNodeConfig.Init.TransferAllocatedPort = DMA_SRC_ALLOCATED_PORT0|DMA_DEST_ALLOCATED_PORT0;
   pNodeConfig.Init.TransferEventMode = DMA_TCEM_BLOCK_TRANSFER;
-  pNodeConfig.RepeatBlockConfig.RepeatCount = 1;
-  pNodeConfig.RepeatBlockConfig.SrcAddrOffset = 0;
-  pNodeConfig.RepeatBlockConfig.DestAddrOffset = 0;
-  pNodeConfig.RepeatBlockConfig.BlkSrcAddrOffset = 0;
-  pNodeConfig.RepeatBlockConfig.BlkDestAddrOffset = 0;
   pNodeConfig.TriggerConfig.TriggerPolarity = DMA_TRIG_POLARITY_MASKED;
   pNodeConfig.DataHandlingConfig.DataExchange = DMA_EXCHANGE_NONE;
   pNodeConfig.DataHandlingConfig.DataAlignment = DMA_DATA_RIGHTALIGN_ZEROPADDED;
@@ -110,7 +105,7 @@ HAL_StatusTypeDef MX_SPI_Display_Queue_Config(void)
   pNodeConfig.Init.Request = GPDMA1_REQUEST_SPI1_TX;
   pNodeConfig.Init.BlkHWRequest = DMA_BREQ_SINGLE_BURST;
   pNodeConfig.Init.Direction = DMA_MEMORY_TO_PERIPH;
-  pNodeConfig.Init.SrcInc = DMA_SINC_FIXED;
+  pNodeConfig.Init.SrcInc = DMA_SINC_INCREMENTED;
   pNodeConfig.Init.DestInc = DMA_DINC_FIXED;
   pNodeConfig.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_BYTE;
   pNodeConfig.Init.DestDataWidth = DMA_DEST_DATAWIDTH_BYTE;
@@ -156,7 +151,7 @@ HAL_StatusTypeDef MX_SPI_Flash_RX_Queue_Config(void)
   pNodeConfig.Init.BlkHWRequest = DMA_BREQ_SINGLE_BURST;
   pNodeConfig.Init.Direction = DMA_PERIPH_TO_MEMORY;
   pNodeConfig.Init.SrcInc = DMA_SINC_FIXED;
-  pNodeConfig.Init.DestInc = DMA_DINC_FIXED;
+  pNodeConfig.Init.DestInc = DMA_DINC_INCREMENTED;
   pNodeConfig.Init.SrcDataWidth = DMA_SRC_DATAWIDTH_BYTE;
   pNodeConfig.Init.DestDataWidth = DMA_DEST_DATAWIDTH_BYTE;
   pNodeConfig.Init.SrcBurstLength = 1;
