@@ -1,0 +1,39 @@
+# STM32CubeIDE build output
+Debug/
+Release/
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.o
+*.d
+*.a
+*.su
+
+# STM32CubeIDE project metadata (Eclipse-based)
+.metadata/
+RemoteSystemsTempFiles/
+.recommenders/
+
+# STM32CubeIDE auto-generated settings (keep .project and .cproject for team sharing)
+# Uncomment below if you want to exclude them too
+# .cproject
+# .project
+# .settings/
+
+# Makefile build artifacts
+build/
+
+# Doxygen output
+docs/html/
+docs/latex/
+
+# Python cache (Tools/)
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
