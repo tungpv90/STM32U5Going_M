@@ -1,4 +1,4 @@
-﻿/* USER CODE BEGIN Header */
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -92,12 +92,12 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
   MX_GPDMA1_Init();
-  MX_SPI1_Init();
+  MX_GPIO_Init();
   MX_ICACHE_Init();
-  MX_SPI2_Init();
+  MX_SPI1_Init();
   MX_SAI1_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   MX_SAI_Audio_Queue_Config();
   HAL_DMAEx_List_LinkQ(&handle_GPDMA1_Channel2, &SAI_Audio_Queue);

@@ -99,7 +99,7 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* saiHandle)
     PeriphClkInit.PLL2.PLL2Q = 2;
     PeriphClkInit.PLL2.PLL2R = 2;
     PeriphClkInit.PLL2.PLL2RGE = RCC_PLLVCIRANGE_0;
-    PeriphClkInit.PLL2.PLL2FRACN = 0;
+    PeriphClkInit.PLL2.PLL2FRACN = 0.0;
     PeriphClkInit.PLL2.PLL2ClockOut = RCC_PLL2_DIVP;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
