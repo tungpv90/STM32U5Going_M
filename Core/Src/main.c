@@ -19,22 +19,16 @@
 /* Includes ------------------------------------------------------------------*/
 #include "app_threadx.h"
 #include "main.h"
-#include "gpdma.h"
 #include "icache.h"
-#include "sai.h"
 #include "spi.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "linked_list.h"
-#include "gpdma.h"
-#include "sai.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-extern DMA_QListTypeDef SAI_Audio_Queue;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -92,16 +86,10 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPDMA1_Init();
   MX_GPIO_Init();
   MX_ICACHE_Init();
   MX_SPI1_Init();
-  MX_SAI1_Init();
-  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
-  MX_SAI_Audio_Queue_Config();
-  HAL_DMAEx_List_LinkQ(&handle_GPDMA1_Channel2, &SAI_Audio_Queue);
-  __HAL_LINKDMA(&hsai_BlockA1, hdmatx, handle_GPDMA1_Channel2);
   /* USER CODE END 2 */
 
   MX_ThreadX_Init();
